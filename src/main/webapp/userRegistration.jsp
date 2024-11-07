@@ -3,6 +3,7 @@
     String userName = request.getParameter("userName");    
     String password = request.getParameter("password");
     String firstName = request.getParameter("firstName");
+    String middleName - request.getParameter("middleName");
     String lastName = request.getParameter("lastName");
     String email = request.getParameter("email");
     Class.forName("com.mysql.cj.jdbc.Driver");
