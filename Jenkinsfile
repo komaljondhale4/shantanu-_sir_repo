@@ -1,5 +1,9 @@
 pipline{
   agent any
+  environment{
+          i_name="timage"
+          c_name="tcontainer"
+  }
   stages{
     stage('clone repository'){
            steps {
@@ -18,9 +22,9 @@ pipline{
                                 }
      stage ('creat container'){
                steps{
-                      sh "docker stop tsimageLWA || true"
-                      sh " docker rm tsimageLWA || true
-                      sh " docker run -d -p 80:8080 tsimageLWA"
+                      sh "docker stop ${c_name} || true"
+                      sh " docker rm ${c_name} || true
+                      sh " docker run -d --name ${c_name}-p 80:8080 ${i_name}"
                     }
                                }
   }  
