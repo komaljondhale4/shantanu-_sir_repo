@@ -23,8 +23,8 @@ pipline{
      stage ('creat container'){
                steps{
                       sh "docker stop ${c_name} || true"
-                      sh " docker rm ${c_name} || true
-                      sh " docker run -d --name ${c_name}-p 80:8080 ${i_name}"
+                      sh "docker rm ${c_name} || true"
+                      sh "docker run -d --name ${c_name}-p 80:8080 ${i_name}"
                     }
                                }
   }  
