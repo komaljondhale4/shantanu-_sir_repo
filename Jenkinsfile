@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Compile through Maven') {
             steps {
-                sh "mvn clean install -DskipTests"  // Run Maven to build the project
+                sh "mvn clean install -DskipTests=false"  // Run Maven to build the project
             }
         }
         stage('Create Docker Image') {
