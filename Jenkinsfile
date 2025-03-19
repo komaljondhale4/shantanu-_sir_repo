@@ -17,6 +17,8 @@ pipeline {
         }
         stage('Create Docker Image') {
             steps {
+                 sh "docker rmi ${i_name} || true"  // delet image if exist
+                
                 // Correct the typo 'dcoker' to 'docker'
                 sh "docker build -t ${i_name} ."  // Build Docker image using environment variable
             }
