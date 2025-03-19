@@ -28,7 +28,7 @@ pipeline {
                 sh "docker rm ${c_name} || true"
                 
                 // Run a new container from the built image
-                sh "docker run -d --name ${c_name} -p 80:8080 ${i_name}"  // Correct port mapping
+                sh "docker run -d --name ${c_name} -p 8081:8080 ${i_name}"  // Correct port mapping
             }
         }
     }
