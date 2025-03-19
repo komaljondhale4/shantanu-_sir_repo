@@ -5,6 +5,12 @@ pipeline {
         c_name = "tcontainer"  // Container name
     }
     stages {
+          
+        stage('Clean Workspace') {
+            steps {
+                sh "rm -rf *"  // Deletes all files and directories in the workspace
+            }
+        }
         stage('Clone repository') {
             steps {
                 git 'https://github.com/komaljondhale4/shantanu-_sir_repo.git'
@@ -12,14 +18,12 @@ pipeline {
         }
         stage('Compile through Maven') {
             steps {
-                sh "mvn clean install -DskipTests=false"  // Run Maven to build the project
+                sh "mvn clean install -DskipTests"  // Run Maven to build the project
             }
         }
         stage('Create Docker Image') {
             steps {
                  sh "docker rmi ${i_name} || true"  // delet image if exist
-                
-                // Correct the typo 'dcoker' to 'docker'
                 sh "docker build -t ${i_name} ."  // Build Docker image using environment variable
             }
         }
